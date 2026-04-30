@@ -25,7 +25,7 @@ This project implements a Red-Black Tree. A Red-Black Tree is a type of balanced
 
 ### Search (find)
 
-Like a standard BST, search recurses through the height of the tree, and each recursion is constant time (c). Because Red-Black Trees have guarenteed height `h<= 2\*log(n+1)`, the search function is, at worst, **O(log(n))**.
+Like a standard BST, search recurses through the height of the tree, and each recursion is constant time (c). Because Red-Black Trees have guarenteed height `h <= 2\*log(n+1)`, the search function is, at worst, **O(log(n))**.
 
 ### Insertion
 
