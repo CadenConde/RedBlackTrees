@@ -168,7 +168,7 @@ if tree.find(10):
     print("Value 10 found!")
 
 # Traverse and display tree
-tree.traverse()  # Prints: [5 (Black)] [10 (Black)] [20 (Red)]
+tree.traverse()  # Prints: [5 (Red)] [10 (Black)] [20 (Red)]
 
 # Delete values
 tree.delete(10)

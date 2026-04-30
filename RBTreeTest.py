@@ -1,9 +1,7 @@
 from RBTree import RedBlackTree
-t = RedBlackTree() 
-tests = 0
-passed = 0
 
-# helper method to check validity of tree:
+
+# ------------------- helper methods ---------------------
 def isValidRBTree(t):
     n = t.root
     
@@ -63,6 +61,11 @@ def checkNodes(n):
             return False
     
     return checkNodes(n.left) and checkNodes(n.right)
+
+# -------------------------------------------------------------
+# -                        Test Cases                         -
+# -------------------------------------------------------------
+
 
 passed = 0
 total = 16
@@ -202,7 +205,7 @@ assert not t.find(20) and not t.find(25) and isValidRBTree(t), "Failed Test 16"
 if not t.find(20) and not t.find(25) and isValidRBTree(t):
     passed += 1
 
-
-
+# fancy screen clearing stuff
 print("\033[H\033[J", end="")
+
 print(f"[{passed}/{total} Tests Pass]")
