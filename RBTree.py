@@ -47,7 +47,6 @@ class RedBlackTree:
     
     # rotate right about node x
     def rotateRight(self, x):
-        self.traverse()
         y = x.left # promoted node
         
         # switch subtrees
@@ -55,6 +54,9 @@ class RedBlackTree:
         y.right = x
         x.left = temp
         y.parent = x.parent
+        
+        if temp:
+            temp.parent = x
         
         # link parents
         if not x.parent: 
@@ -74,6 +76,9 @@ class RedBlackTree:
         y.left = x
         x.right = temp
         y.parent = x.parent
+        
+        if temp:
+            temp.parent = x
         
         # link parents
         if not x.parent: 
@@ -102,7 +107,6 @@ class RedBlackTree:
             n.parent.right = n
         n.black = False # set n's color to red
         self.insertColorFix(n)
-        print()
         
     # fix coloring after insertion
     def insertColorFix(self, n):
@@ -138,21 +142,20 @@ class RedBlackTree:
         
     # traverse and print values through the tree
     # search from root by default
-    def traverse(self, n=None):
+    def traverse(self, n=None, res={}):
         if not n:
             n = self.root
         if n.val:
-            self.traverse(n.left)
-            
+            self.traverse(n.left, res)
             color = "Black"
             if not n.black:
                 color = "Red"
-            if n.parent:
-                print(f"[{n.val} ({color}) (parent = {n.parent.val})]", end=" ")
-            else:
-                print(f"[{n.val} ({color}) (Root Node)]", end=" ")
-                
-            self.traverse(n.right)
+            print(f"[{n.val} ({color})]", end=" ")
+            res[n.val] = color
+            self.traverse(n.right, res)
+        if n == self.root:
+            print()
+        return res
    
     # find value in the tree, "True" if present, false otherwise         
     def find(self, val, n=None):
@@ -253,22 +256,26 @@ class RedBlackTree:
                         if x.parent.left == x.sibling():
                             x.sibling().left.black = x.sibling().black
                             x.sibling().black = x.parent.black
+                            x.parent.black = True
                             self.rotateRight(x.parent)
                         #right left
                         else:
                             x.sibling().left.black = x.parent.black
+                            x.parent.black = True
                             self.rotateRight(x.sibling())
                             self.rotateLeft(x.parent)
                     else:
                         #left right
                         if x.parent.left == x.sibling():
                             x.sibling().right.black = x.parent.black
+                            x.parent.black = True
                             self.rotateLeft(x.sibling())
                             self.rotateRight(x.parent)
                         #right right
                         else:
                             x.sibling().right.black = x.sibling().black
                             x.sibling().black = x.parent.black
+                            x.parent.black = True
                             self.rotateLeft(x.parent)
                      
                 # 2 black children       
