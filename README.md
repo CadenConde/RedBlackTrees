@@ -114,7 +114,7 @@ Main class managing the tree structure and operations.
 
 ### RBTreeTest.py
 
-Comprehensive test suite with 16 test cases covering:
+Test suite with 16 test cases covering:
 
 **Validation Helper Functions:**
 
@@ -129,7 +129,7 @@ Comprehensive test suite with 16 test cases covering:
 
 2. **Insertion Tests** (Tests 2-5)
    - Single insertion
-   - Dual insertion with rebalancing
+   - Dual insertion
    - Sequential insertion (1-29)
    - Reverse sequential insertion (30-1)
 
@@ -137,18 +137,18 @@ Comprehensive test suite with 16 test cases covering:
    - Search in empty tree
    - Search for non-existent values
    - Search for single value
-   - Search for multiple values with boundary checking
+   - Search for multiple values
 
 4. **Traversal Tests** (Tests 10-12)
    - Empty tree traversal
    - Single node traversal
-   - Multi-node traversal with color verification
+   - Multi-node traversal
 
 5. **Deletion Tests** (Tests 13-16)
    - Deletion of single node
    - Deletion of first node in two-node tree
    - Complete deletion of all nodes
-   - Multiple deletions in larger tree
+   - Multiple deletions in large tree
 
 ## Usage
 
