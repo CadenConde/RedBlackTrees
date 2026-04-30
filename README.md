@@ -25,15 +25,15 @@ This project implements a Red-Black Tree. A Red-Black Tree is a type of balanced
 
 ### Search (find)
 
-Like a standard BST, search recurses through the height of the tree, and each recursion is constant time (c). Because Red-Black Trees have guarenteed height <= 2\*log(n+1), the search function is, at worst, **O(log(n))**.
+Like a standard BST, search recurses through the height of the tree, and each recursion is constant time (c). Because Red-Black Trees have guarenteed height `h<= 2\*log(n+1)`, the search function is, at worst, **O(log(n))**.
 
 ### Insertion
 
-Finding the insertion location of the node requires a search call, which takes O(log(n)) time. After the node is inserted, fixing the coloring of the tree can recurse up the height of the tree, with each call taking c time. Because of this, at worst, T(n) = O(log(n)) + c*(2*log(n+1)) = O(log(n)). Similarly, at best, there is no coloring fixes required, and T(n) = O(log(n)) + c = O(log(n)). Because best and worse case complexity are the same, average complexity is also **O(log(n))**.
+Finding the insertion location of the node requires a search call, which takes O(log(n)) time. After the node is inserted, fixing the coloring of the tree can recurse up the height of the tree, with each call taking c time. Because of this, at worst, `T(n) = O(log(n)) + c*(2*log(n+1)) = O(log(n))`. Similarly, at best, there is no coloring fixes required, and `T(n) = O(log(n)) + c = O(log(n))`. Because best and worse case complexity are the same, average complexity is also **O(log(n))**.
 
 ### Deletion
 
-Deletion requires a search call to locate the node to delete, which is already O(log(n)). Additionally, similar to search, delete can recurse all the way up the height of the tree, with each recursion taking c time. At worst, if delete recurses all the way to the root node, T(n) = O(log(n)) + c*(2*log(n+1)) = O(log(n)). At best, deletion does not recurse, and just takes constant time, T(n) = O(log(n)) + c = O(log(n)). Because best and worse case complexity are the same, average complexity is also **O(log(n))**.
+Deletion requires a search call to locate the node to delete, which is already O(log(n)). Additionally, similar to search, delete can recurse all the way up the height of the tree, with each recursion taking c time. At worst, if delete recurses all the way to the root node, `T(n) = O(log(n)) + c*(2*log(n+1)) = O(log(n))`. At best, deletion does not recurse, and just takes constant time, `T(n) = O(log(n)) + c = O(log(n))`. Because best and worse case complexity are the same, average complexity is also **O(log(n))**.
 
 ### Summary and Comparison
 
