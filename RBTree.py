@@ -172,7 +172,7 @@ class RedBlackTree:
         else:
             return self.find(val, n.right)
             
-    # find value in the tree, "True" if present, false otherwise         
+    # return node containing val in the tree      
     def findPointer(self, val, n=None):
         # start searching from root unless otherwise defined
         if not n: 
@@ -229,7 +229,7 @@ class RedBlackTree:
             v.val = temp
             
     def fixDoubleBlack(self, x):
-        # double black root is just single blakc
+        # double black root is just single black
         if x == self.root:
             return
         
@@ -249,7 +249,7 @@ class RedBlackTree:
                 self.fixDoubleBlack(x)
                 
             else:
-                #sibling is black
+                # sibling is black
                 if not x.sibling().left.black or not x.sibling().right.black:
                     if x.sibling().left.val and not x.sibling().left.black:
                         #left left
